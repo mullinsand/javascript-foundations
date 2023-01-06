@@ -5,17 +5,22 @@ var Statue = require('../exercises/statue');
 
 describe('Medusa', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     assert.isFunction(Medusa);
   });
 
-  it.skip('should instantiate our good friend, Medusa', function() {
+  it('should instantiate our good friend, Medusa', function() {
     var medusa = new Medusa();
 
     assert.instanceOf(medusa, Medusa);
   });
 
-  it.skip('should have a name', function() {
+  it('should have a name', function() {
+    var name = 'Andrew';
+    var medusa = new Medusa(name);
+
+    assert.equal(medusa.name, name)
+
     // instantiate a Medusa object with your name as an argument
     // instantiate another Medusa object with someone else's name as an argument
 
@@ -25,7 +30,7 @@ describe('Medusa', function() {
     //NOTE: We will not ask you to write your own tests in a mod 1 assessment, but it is good practice to prepare for mod 2!
   });
 
-  it.skip('should start with no statues', function() {
+  it('should start with no statues', function() {
     var medusa = new Medusa('Amy');
 
     assert.deepEqual(medusa.statues, []);
@@ -33,12 +38,13 @@ describe('Medusa', function() {
 
   // STOP! Skip down to the bottom of the file and pass the tests for Person and Statue!
 
-  it.skip('should gain a statue when staring at a person', function() {
+  it('should gain a statue when staring at a person', function() {
     var medusa = new Medusa('Eric');
     var victim1 = new Person('Robbie');
     var victim2 = new Person('Bob');
 
     medusa.gazeAtVictim(victim1);
+
     medusa.gazeAtVictim(victim2);
 
     assert.equal(medusa.statues.length, 2);
@@ -48,7 +54,7 @@ describe('Medusa', function() {
     assert.equal(medusa.statues[1].name, 'Bob');
   });
 
-  it.skip('should only be able to have three victims as statues', function() {
+  it('should only be able to have three victims as statues', function() {
     var medusa = new Medusa('Hannah');
     var victim1 = new Person('Pam');
     var victim2 = new Person('Khalid');
@@ -58,7 +64,9 @@ describe('Medusa', function() {
     medusa.gazeAtVictim(victim1);
     medusa.gazeAtVictim(victim2);
     medusa.gazeAtVictim(victim3);
+    console.log(medusa.statues)
     medusa.gazeAtVictim(victim4);
+    console.log(medusa.statues)
 
     assert.equal(medusa.statues.length, 3);
     assert.instanceOf(medusa.statues[0], Statue);
@@ -66,7 +74,7 @@ describe('Medusa', function() {
     assert.instanceOf(medusa.statues[2], Statue);
   });
 
-  it.skip('should let the first victim go free when stoning the 4th', function() {
+  it('should let the first victim go free when stoning the 4th', function() {
     var medusa = new Medusa('Hannah');
     var victim1 = new Person('Pam');
     var victim2 = new Person('Khalid');
@@ -91,7 +99,7 @@ describe('Medusa', function() {
     assert.deepEqual(medusa.statues, [statue2, statue3, statue4]);
   });
 
-  it.skip('should return a freed statue to Person form', function() {
+  it('should return a freed statue to Person form', function() {
     var medusa = new Medusa('Hannah');
     var victim1 = new Person('Pam');
     var victim2 = new Person('Khalid');
@@ -108,7 +116,7 @@ describe('Medusa', function() {
     assert.equal(person.name, 'Pam');
   });
 
-  it.skip('should be relieved when returned to Person form', function () {
+  it('should be relieved when returned to Person form', function () {
     var medusa = new Medusa('Pam');
     var victim1 = new Person('Travis');
     var victim2 = new Person('Kayla');
@@ -128,17 +136,17 @@ describe('Medusa', function() {
 });
 
 describe('Person', function() {
-  it.skip('should be a function', function () {
+  it('should be a function', function () {
     assert.isFunction(Person);
   });
 
-  it.skip('should instantiate our good friend, Person', function() {
+  it('should instantiate our good friend, Person', function() {
     var person = new Person();
 
     assert.instanceOf(person, Person);
   });
 
-  it.skip('should have a name', function() {
+  it('should have a name', function() {
     var scott = new Person('Scott');
     var eric = new Person('Eric');
 
@@ -146,7 +154,7 @@ describe('Person', function() {
     assert.equal(eric.name, 'Eric');
   });
 
-  it.skip('should feel frightened', function() {
+  it('should feel frightened', function() {
     var hannah = new Person('Hannah');
 
     assert.equal(hannah.mood, 'frightened');
@@ -154,17 +162,17 @@ describe('Person', function() {
 });
 
 describe('Statue', function () {
-  it.skip('should be a function', function () {
+  it('should be a function', function () {
     assert.isFunction(Statue);
   });
 
-  it.skip('should instantiate a Statue', function () {
+  it('should instantiate a Statue', function () {
     var statue = new Statue();
 
     assert.instanceOf(statue, Statue);
   });
 
-  it.skip('should have the name of its former self', function () {
+  it('should have the name of its former self', function () {
     var kayla = new Statue('Kayla');
     var hannah = new Statue('Hannah');
 
