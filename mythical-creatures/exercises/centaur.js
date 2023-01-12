@@ -14,7 +14,7 @@ class Centaur {
     if (this.activityCount === 3) {
       this.cranky = true
     }
-    else if (this.activityCount > 3 || ) {
+    else if (this.activityCount > 3 || this.layingDown == true) {
       return 'NO!'
     }
     else {
@@ -33,6 +33,11 @@ class Centaur {
     if (this.standing === true) {
       return 'NO!'
     }
+    else if (this.layingDown == true) {
+      this.cranky = false
+      this.activityCount = 0
+      return 'ZZZZ'
+    }
   }
 
   layDown() {
@@ -43,6 +48,16 @@ class Centaur {
   standUp() {
     this.standing = true
     this.layingDown = false
+  }
+
+  drinkPotion() {
+    if (this.standing == true) {
+      this.cranky = false
+      this.activityCount = 0
+    }
+    else if (this.standing == false) {
+      return 'Not while I\'m laying down!'
+    }
   }
 
 }
